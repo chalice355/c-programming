@@ -22,3 +22,6 @@ return 0;
 
 # 실행결과 
 <img src="./result_image.png">
+
+# 파일탐색기 루트 캡처
+<img src="./root_image.png">
