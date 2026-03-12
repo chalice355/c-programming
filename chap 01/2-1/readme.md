@@ -3,9 +3,8 @@
 * 컴파일되기 전에 소스 코드를 변환하는 단계를 전처리라고 한다. 전처리기(Preprocessor)가 이 작업을 담당하며, '#' 기호로 시작하는 지시어를 처리한다. [ex) #include, #define, #ifdef 등]
 
 ## 객체 cin,cout은 어디에 선언되어 있는가?선언된 파일을 찾아서 의미를 설명하고 캡쳐하여 첨부하라 ->교재 75페이지 2.5절 내용을 참고할 것
-<img src="./sub2-1.png">
-<img src="./sub2-1(1).png">
-<img src="./result_image.png"> 
+<img src="./sbj2-1.png">
+<img src="./sbj2-1(1).png">
 * <iostream> 헤더에 선언되어 있다.
 
 ## 프로그램을 링크할때 이름 충돌이 발생하는 경우를 설명해보라
