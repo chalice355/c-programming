@@ -1,0 +1,26 @@
+// **********************************************
+// 제  목 : 1주차 실습과제 1-1
+// 날  짜 : 2026년 3월 6일
+// 작성자 : 2001218 임성배
+// **********************************************
+
+#include <iostream>
+using namespace std;
+
+class Triangle {
+public:
+	int width;
+	int height;
+	int getArea();
+};
+
+int Triangle::getArea() {
+	return width * height / 2;
+}
+
+int main() {
+	Triangle tri;
+	tri.width = 6;
+	tri.height = 4;
+	cout << "삼각형의 면적은 " << tri.getArea() << endl;
+}
