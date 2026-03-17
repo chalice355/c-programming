@@ -110,5 +110,56 @@ int main() {
 }
 ```
 * 구의 반지름을 5로 설정, 부피와 표면적 계산 후 결과값 출력
+<img src="./sbj 3-1-3.png">
 
 # 실습과제 4
+
+```
+class Rectangle {
+public:
+	int x = 1;
+	int y = 2;
+	int width = 3;
+	int height = 4;
+	int getArea();
+	int getPerimeter();
+	void getBR();
+};
+```
+* 사각형 클래스에 멤버 변수 x, y, 너비, 높이 정의
+* 너비, 둘레 길이, 좌표 구하는 함수 선언
+* 두 개의 좌표(x와 y값)를 출력해야 하므로, 반환형을 void로 한다.
+```
+int Rectangle::getArea() {
+	return width * height;
+}
+```
+* 사각형 너비 구하는 함수 구현
+```
+int Rectangle::getPerimeter() {
+	return (width + height) * 2;
+}
+```
+* 사각형 둘레 길이 구하는 함수 구현
+```
+void Rectangle::getBR() {
+	cout << "사각형의 우측하단의 좌표는 (" << x + width << ", " << y - height << ")" << endl;
+}
+```
+* 두 개의 좌표(x와 y값)를 출력해야 하므로, 반환형을 void로 한다.
+* x와 y좌표 구하는 함수 구현
+```
+int main() {
+	Rectangle rect;
+	cout << "사각형의 면적은 " << rect.getArea() << endl;
+	cout << "사각형의 둘레 길이는 " << rect.getPerimeter() << endl;
+	rect.getBR();
+}
+```
+* 각 함수의 결과값을 출력
+<img src="./sbj 3-1-4.png">
+
+# 실습과제 5
+```
+
+```
