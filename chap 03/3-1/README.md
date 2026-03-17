@@ -161,6 +161,37 @@ int main() {
 
 # 실습과제 5
 ```
-
+class Rectangle {
+public:
+	int x = 1;
+	int y = 2;
+	int width = 3;
+	int height = 4;
+	int getArea();
+	int getPerimeter();
+	void getBR();
+	void getData();
+};
 ```
+* 입력받을 void getData()를 선언
+```
+void Rectangle::getData() {
+	cout << "사각형의 좌측상단좌표(x,y) : ";
+	cin >> x >> y;
+
+	cout << "사각형의 폭과 높이(width,height) : ";
+	cin >> width >> height;
+}
+```
+* 데이터 입력받기 위한 함수 구현
+```
+int main() {
+	Rectangle rect;
+	rect.getData();
+	cout << "사각형의 면적은 " << rect.getArea() << endl;
+	cout << "사각형의 둘레 길이는 " << rect.getPerimeter() << endl;
+	rect.getBR();
+}
+```
+* 입력받은 값을 각 함수에 넣어 계산한 결과값을 출력
 <img src="./sbj 3-1-5.png">
