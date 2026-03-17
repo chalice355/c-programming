@@ -163,3 +163,4 @@ int main() {
 ```
 
 ```
+<img src="./sbj 3-1-5.png">
