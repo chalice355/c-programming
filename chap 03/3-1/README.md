@@ -57,20 +57,58 @@ public:
 	int getArea();
 };
 ```
-* 
+* 삼각형 클래스 선언 후, 너비와 높이, 그리고 넓이 멤버 변수를 선언
 ```
 int Triangle::getArea() {
 	return width * height / 2;
 }
 ```
-* 
+* 삼각형의 넓이를 구하는 함수를 구현
 ```
 int main() {
 	Triangle tri;
+```
+* 객체 생성
+```
 	tri.width = 6;
 	tri.height = 4;
 	cout << "삼각형의 면적은 " << tri.getArea() << endl;
 }
 ```
-* 
+* 멤버 변수에 갑을 저장하고, output으로 getArea()를 호출하여 저장된 값을 계산하여 결과값 출력
 <img src="./sbj 3-1-2.png">
+
+# 실습과제 3
+```
+class Sphere {
+public:
+	float radius;
+	float pi = 3.14;
+	float getSurfaceArea();
+	float getVolume();
+};
+```
+* 구의 클래스 선언, 반지름과 파이 멤버 변수 선언, 표면적 함수와 부피 함수 선언
+```
+float Sphere::getSurfaceArea() {
+	return 4 * pi * radius * radius;
+}
+```
+* 표면적 함수 구현
+```
+float Sphere::getVolume() {
+	return (4.0 / 3.0) * pi * radius * radius * radius;
+}
+```
+* 부피 함수 구현
+```
+int main() {
+	Sphere sp;
+	sp.radius = 5;
+	cout << "구의 부피는 " << sp.getVolume() << endl;
+	cout << "구의 표면적은 " << sp.getSurfaceArea() << endl;
+}
+```
+* 구의 반지름을 5로 설정, 부피와 표면적 계산 후 결과값 출력
+
+# 실습과제 4
