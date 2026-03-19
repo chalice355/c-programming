@@ -80,3 +80,44 @@ int main() {
 }
 ```
 * 함수 종료
+<img src="./sbj 3-2-2.png">
+
+# 실습과제 3
+```
+class Sphere {
+	int r;
+public:
+	Sphere();
+	Sphere(int a);
+	float getVol();
+};
+```
+* Sphere 클래스 선언 및 매개변수와 생성자 선언
+```
+float Sphere::getVol() {
+	return (4.0 / 3.0) * 3.14 * r * r * r;
+}
+```
+* 구의 부피 구하는 함수 정의(구의 부피 계산 공식)
+```
+Sphere::Sphere() : Sphere(1) {}
+```
+* 기본 생성자 1로 초기화(타겟 생성자에 위임하여 1로 초기화)
+```
+Sphere::Sphere(int a) : r(a) {}
+```
+* 매개변수 생성자 3으로 초기화
+```
+int main() {
+	Sphere sph1;
+	cout << "구의 부피는 " << sph1.getVol() << endl;
+
+	Sphere sph2(3);
+	cout << "구의 부피는 " << sph2.getVol() << endl;
+	return 0;
+}
+```
+* 각 sph1과 sph2의 부피를 계산한 값을 출력
+<img src="./sbj 3-2-3.png">
+
+# 실습과제 4
