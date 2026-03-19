@@ -121,3 +121,67 @@ int main() {
 <img src="./sbj 3-2-3.png">
 
 # 실습과제 4
+```
+class Rectangle {
+	int w, h, x, y;
+```
+* 4개의 매개변수 선언
+```
+public:
+	Rectangle();
+	Rectangle(int a, int b);
+	Rectangle(int a, int b, int c, int d);
+```
+* 2개의 위임 생성자와 1개의 타겟 생성자 선언
+```
+	void getArea();
+	void getPerimeter();
+	void getCord();
+};
+```
+* 문장을 넣어야 하기 때문에 void타입
+```
+void Rectangle::getArea() {
+	cout << "rect1의 면적은 " << w * h << endl;
+}
+```
+* 넓이를 구하는 함수 정의
+```
+void Rectangle::getPerimeter() {
+	cout << "rect2의 둘레길이는 " << (w + h) * 2 << endl;
+}
+```
+* 둘레길이를 구하는 함수 정의
+```
+void Rectangle::getCord() {
+	cout << "rect3의 우측하단의 좌표는 (" << x + w << ", " << y - h << ")" << endl;
+}
+```
+* 좌표를 구하는 함수 정의
+```
+Rectangle::Rectangle() : Rectangle(1, 1, 1, 1) {}
+```
+* 모두 1로 초기화(타겟 생성자에 위임하여 모두 1로 초기화)
+```
+Rectangle::Rectangle(int a, int b) : Rectangle(a, b, 1, 1) {}
+```
+* x와 y의 값을 받고, 나머지는 1로 초기화(타겟 생성자에 x와 y의 값, 그리고 나머지를 1로 초기화)
+```
+Rectangle::Rectangle(int a, int b, int c, int d) : x(a), y(b), w(c), h(d) {}
+```
+* 타겟 생성자로, 4개의 값을 모두 받는다
+```
+int main() {
+	Rectangle rect1;
+	Rectangle rect2(3, 5);
+	Rectangle rect3(3, 5, 2, 4);
+```
+* 각 객체에 초기화값을 타겟 생성자에 대입
+```
+	rect1.getArea();
+	rect2.getPerimeter();
+	rect3.getCord();
+}
+```
+* 각 객체를 출력
+<img src="./sbj 3-2-4.png">
