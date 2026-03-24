@@ -15,11 +15,203 @@
 ## main함수가 종료 후 프로그램이 종료하기 전에 어떤 일이 처리되는지 조사하라
 * 전역 객체, 지역 객체 순으로 소멸자를 호출하여 소멸한다
 * 버퍼를 비우고, 런타임을 정리하여 힙이나 스택 등의 자원을 반납한다
+---
 
 # 실습과제 2
+```
+class Triangle {
+public:
+	int w, h;
+	Triangle();
+	Triangle(int a, int b);
+	~Triangle();
+	double getArea();
+};
+```
+* Triangle 클래스 생성 후, 밑변 w와 높이 h를 정수로 선언, 생성자 2개와 소멸자 1개, 넓이 구하는 함수 선언
+```
+Triangle::Triangle() : Triangle(1,1) {}
+```
+* 기본 생성자를 위임 생성자로, 타겟 생성자에 (1,1)로 초기화
+```
+Triangle::Triangle(int a, int b) : w(a), h(b) {
+	cout << "밑변 " << w << " ,높이 " << h << "인 삼각형 생성" << endl;
+}
+```
+* 타겟 생성자로, 문장과 w, h를 출력
+```
+Triangle::~Triangle() {
+	cout << "밑변 " << w << " ,높이 " << h << "인 삼각형 소멸" << endl;
+}
+```
+* 소멸자로, 소멸과 함께 문장과 w, h를 출력
+```
+double Triangle::getArea() {
+	return (w * h) * 0.5;
+}
+```
+* 넓이 구하는 함수 정의
+```
+int main() {
+	Triangle tri1;
+	cout << "삼각형의 면적은 " << tri1.getArea() << endl;
+
+	Triangle tri2(2, 4);
+	cout << "삼각형의 면적은 " << tri2.getArea() << endl;
+	return 0;
+}
+```
+* 지역 변수 선언과 초기화를 진행 후, 내용 출력
+* 코드 종료
+<img src="./sbj 3-3-2.png">
+---
 
 # 실습과제 3
+```
+class Triangle {
+public:
+	int w, h;
+	Triangle();
+	Triangle(int a, int b);
+	~Triangle();
+	double getArea();
+};
+```
+* Triangle 클래스 생성 후, 밑변 w와 높이 h를 정수로 선언, 생성자 2개와 소멸자 1개, 넓이 구하는 함수 선언
+```
+Triangle::Triangle() : Triangle(4, 8) {}
+```
+* 기본 생성자를 위임 생성자로, 타겟 생성자에 (4,8)로 초기화
+```
+Triangle::Triangle(int a, int b) : w(a), h(b) {
+	cout << "밑변 " << w << " ,높이 " << h << "인 삼각형 생성" << endl;
+}
+```
+* 타겟 생성자로, 문장과 w, h를 출력
+```
+Triangle::~Triangle() {
+	cout << "밑변 " << w << " ,높이 " << h << "인 삼각형 소멸" << endl;
+}
+```
+* 소멸자로, 클래스 소멸과 함께 문장과 w, h를 출력
+```
+double Triangle::getArea() {
+	return (w * h) * 0.5;
+}
+```
+* 넓이 구하는 함수 정의
+```
+Triangle tri1;
+Triangle tri2(2,2);
+```
+* 전역변수 선언과 초기화
+```
+int main() {
+	cout << "삼각형의 면적은 " << tri1.getArea() << endl;
+
+	cout << "삼각형의 면적은 " << tri2.getArea() << endl;
+	return 0;
+}
+```
+* 문장과 함수의 값을 출력
+* 코드 종료
+<img src="./sbj 3-3-3.png">
+---
 
 # 실습과제 4
+```
+class Sphere {
+public:
+	int radius;
+	Sphere();
+	Sphere(int r);
+	~Sphere();
+	double getVolume();
+};
+```
+* Sphere 클래스 정의
+* 정수 반지름 변수와 기본 생성자(위임), 타겟 생성자, 소멸자, 부피 구하는 함수 선언
+```
+Sphere::Sphere() : Sphere(1) {}
+```
+* 위임 생성자로, 타겟 생성자에 (1)로 초기화
+```
+Sphere::Sphere(int r) : radius(r) {
+	cout << "반지름 " << radius << "인 구 생성" << endl;
+}
+```
+* 타겟 생성자로, 문장과 반지름값을 출력
+```
+Sphere::~Sphere() {
+	cout << "반지름 " << radius << "인 구 소멸" << endl;
+}
+```
+* 소멸자로, 클래스 소멸과 함께 문장과 반지름값 출력
+```
+double Sphere::getVolume() {
+	return (4.0 / 3.0) * 3.14 * radius * radius * radius;
+}
+```
+* 구의 부피를 구하는 함수 정의
+```
+int main() {
+	Sphere sph1;
+	cout << "구의 부피는 " << sph1.getVolume() << endl;
+
+	Sphere sph2(3);
+	cout << "구의 부피는 " << sph2.getVolume() << endl;
+}
+```
+* 지역 변수 선언과 초기화를 진행 후, 문장과 부피값 출력
+<img src="./sbj 3-3-4.png">
+---
 
 # 실습과제 5
+```
+class Sphere {
+public:
+	int radius;
+	Sphere();
+	Sphere(int r);
+	~Sphere();
+	double getVolume();
+};
+```
+* Sphere 클래스 정의
+* 정수 반지름 변수와 기본 생성자(위임), 타겟 생성자, 소멸자, 부피 구하는 함수 선언
+```
+Sphere::Sphere() : Sphere(10) {}
+```
+* 위임 생성자로, 타겟 생성자에 (10)으로 초기화
+```
+Sphere::Sphere(int r) : radius(r) {
+	cout << "반지름 " << radius << "인 구 생성" << endl;
+}
+```
+* 타겟 생성자로, 문장과 반지름값을 출력
+```
+Sphere::~Sphere() {
+	cout << "반지름 " << radius << "인 구 소멸" << endl;
+}
+```
+* 소멸자로, 클래스 소멸과 함께 문장과 반지름값 출력
+```
+double Sphere::getVolume() {
+	return (4.0 / 3.0) * 3.14 * radius * radius * radius;
+}
+```
+* 구의 부피를 구하는 함수 정의
+```
+Sphere sph1;
+Sphere sph2(20);
+```
+* 전역 변수 선언 후, 초기화 진행
+```
+int main() {
+	cout << "구의 부피는 " << sph1.getVolume() << endl;
+
+	cout << "구의 부피는 " << sph2.getVolume() << endl;
+}
+```
+* 문장과 부피값 각각 출력
+<img src="./sbj 3-3-5.png">
