@@ -30,7 +30,7 @@ int main() {
 	tri.setHeight(5);
 	cout << "삼각형의 폭은 " << tri.getWidth() << endl;
 	cout << "삼각형의 높이는 " << tri.getHeight() << endl;
-	cout << "삼각형의 높이는 " << tri.getArea() << endl;
+	cout << "삼각형의 면적은 " << tri.getArea() << endl;
 	return 0;
 }
 
