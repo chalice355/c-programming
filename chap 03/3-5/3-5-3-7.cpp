@@ -4,34 +4,27 @@ using namespace std;
 class Storage {
 private:
 	float sum = 0;
-
+	int count = 0;
 public:
-	Storage();
-	Storage(int z);
-	float put(int x);
-	float getAvg();
-	double data[10] = { 0,0,0,0,0,0,0,0,0,0 };
-	void dump();
+	double data[10] = {};
+	void put(double x) {
+		if (count < 10)
+			data[count++] = x;
+	}
+	float getAvg() {
+		sum = 0;
+		for (int i = 0; i < count; i++)
+			sum += data[i];
+		return (sum / count);
+	}
+	void dump() {
+		for (int i = 0; i < count; i++) {
+			cout << data[i];
+			if (i < count - 1) cout << " ";
+		}
+		cout << endl;
+	}
 };
-
-float Storage::put(int x) {
-	for (int i = 0; i < 10; i++) {
-		data[i] = x;
-	}
-}
-
-float Storage::getAvg() {
-	for (int i = 0; i < 10; i++) {
-		sum += sum;
-		return (sum / i);
-	}
-}
-
-void Storage::dump() { 
-	for (int i = 0; i < 10; i++) {
-		cout << data[i] << " ";
-	}
-}
 
 int main() {
 	Storage a;
@@ -39,5 +32,10 @@ int main() {
 	a.put(36.9);
 	a.put(36.4);
 	a.dump();
-	cout << "í‰ê·  ì²´ì˜¨ì€ " << a.getAvg() << "ìž…ë‹ˆë‹¤." << endl;
+	cout << "Æò±Õ Ã¼¿ÂÀº " << a.getAvg() << "ÀÔ´Ï´Ù." << endl;
 }
+
+/*
+36.7 36.9 36.4
+Æò±Õ Ã¼¿ÂÀº 36.6667ÀÔ´Ï´Ù.
+*/
