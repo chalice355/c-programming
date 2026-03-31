@@ -40,7 +40,9 @@ public:
 * 소멸자 선언 및 초기화
 <img src="./sbj 3-5-2.png">
 ---
+
 # 실습과제 3
+
 ## 예제 1
 ```
 #include <iostream>
