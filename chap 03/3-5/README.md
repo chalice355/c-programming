@@ -14,5 +14,116 @@
 * 짧은 내용이더라도 여러 곳에서 사용한다면, 하나하나 작성하고 수정하여야하기 때문에 보수의 용이성을 위해서라도 함수를 사용하는 것이 합리적이다. 
 
 # 실습과제 2
-
+```
+class Triangle {
+private:
+	int w, h;
+public:
+	Triangle() : Triangle(1, 1) {}
+	Triangle(int a, int b) : w(a), h(b) { cout << "폭" << w << ", 높이" << h << "인 삼각형 생성" << endl; }
+```
+* 기본 생성자 선언 및 (1, 1)로 초기화
+* 타겟 생성자 선언 및 초기화
+```
+	int getWidth() { return w; }
+	void setWidth(int a) { w = a; }
+	int getHeight() { return h; }
+	void setHeight(int b) { h = b; }
+```
+* 너비와 높이 getter와 setter 선언 및 초기화
+```
+	float getArea() { return 0.5 * w * h; }
+	~Triangle() { cout << "폭" << w << ",높이" << h << " 삼각형소멸" << endl; }
+};
+```
+* 너비 구하는 함수 선언 및 초기화
+* 소멸자 선언 및 초기화
+---
 # 실습과제 3
+## 예제 1
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Picture {
+private:
+	int w, h;
+	string place;
+public:
+	Picture() : w(5), h(7), place("모름") {}
+	Picture(int a, int b, string p) : w(a), h(b), place(p) {}
+	int getWidth() { return w; }
+	int getHeight() { return h; }
+	string getPlace() { return place; }
+};
+
+int main() {
+	Picture pic;	// 5x7 크기, 촬영 장소 "모름"
+	Picture mt(10, 14, "한라산");	// 10x14 크기, 촬영 장소 "한라산"
+	cout << pic.getWidth() << "x" << pic.getHeight() << " " << pic.getPlace() << endl;
+	cout << mt.getWidth() << "x" << pic.getHeight() << " " << mt.getPlace() << endl;
+}
+```
+
+## 예제 2
+```
+class Triangle {
+private:
+	int w, h;
+public:
+	Triangle() : Triangle(1, 1) {}
+	Triangle(int a, int b) : w(a), h(b) { cout << "폭" << w << ", 높이" << h << "인 삼각형 생성" << endl; }
+	int getWidth() { return w; }
+	void setWidth(int a) { w = a; }
+	int getHeight() { return h; }
+	void setHeight(int b) { h = b; }
+	float getArea() { return 0.5 * w * h; }
+	~Triangle() { cout << "폭" << w << ",높이" << h << " 삼각형소멸" << endl; }
+};
+
+int main() {
+	Triangle tri;
+	tri.setWidth(3);
+	tri.setHeight(5);
+	cout << "삼각형의 면적은 " << tri.getArea() << endl;
+	return 0;
+}
+```
+
+## 예제 3
+```
+class Storage {
+private:
+	float sum = 0;
+	int count = 0;
+public:
+	double data[10] = {};
+	void put(double x) {
+		if (count < 10)
+			data[count++] = x;
+	}
+	float getAvg() {
+		sum = 0;
+		for (int i = 0; i < count; i++)
+			sum += data[i];
+		return (sum / count);
+	}
+	void dump() {
+		for (int i = 0; i < count; i++) {
+			cout << data[i];
+			if (i < count - 1) cout << " ";
+		}
+		cout << endl;
+	}
+};
+
+int main() {
+	Storage a;
+	a.put(36.7);
+	a.put(36.9);
+	a.put(36.4);
+	a.dump();
+	cout << "평균 체온은 " << a.getAvg() << "입니다." << endl;
+}
+```
