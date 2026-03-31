@@ -38,6 +38,7 @@ public:
 ```
 * 너비 구하는 함수 선언 및 초기화
 * 소멸자 선언 및 초기화
+<img src="./sbj 3-5-2.png">
 ---
 # 실습과제 3
 ## 예제 1
@@ -45,7 +46,9 @@ public:
 #include <iostream>
 #include <string>
 using namespace std;
-
+```
+* stirng 사용을 위해 string 라이브러리 include
+```
 class Picture {
 private:
 	int w, h;
@@ -57,7 +60,13 @@ public:
 	int getHeight() { return h; }
 	string getPlace() { return place; }
 };
-
+```
+* Picture 클래스 선언 및 멤버변수와 멤버함수 선언/초기화
+* 기본 생성자 선언 및 초기화
+* 타겟 생성자 선언
+* 너비와 높이 getter 선언 및 초기화
+* string 타입의 장소 getter 선언 및 초기화
+```
 int main() {
 	Picture pic;	// 5x7 크기, 촬영 장소 "모름"
 	Picture mt(10, 14, "한라산");	// 10x14 크기, 촬영 장소 "한라산"
@@ -65,31 +74,55 @@ int main() {
 	cout << mt.getWidth() << "x" << pic.getHeight() << " " << mt.getPlace() << endl;
 }
 ```
+* Picture 객체 pic 생성 (pic = 기본 생성자 호출)
+* Picture 객체 my 생성 (mt = 타겟 생성자에 변수 대입 호출)
+<img src="./sbj 3-5-3-1.png">
+---
 
 ## 예제 2
 ```
-class Triangle {
+class Coffee {
 private:
-	int w, h;
+	int c, s, m, w;
 public:
-	Triangle() : Triangle(1, 1) {}
-	Triangle(int a, int b) : w(a), h(b) { cout << "폭" << w << ", 높이" << h << "인 삼각형 생성" << endl; }
-	int getWidth() { return w; }
-	void setWidth(int a) { w = a; }
-	int getHeight() { return h; }
-	void setHeight(int b) { h = b; }
-	float getArea() { return 0.5 * w * h; }
-	~Triangle() { cout << "폭" << w << ",높이" << h << " 삼각형소멸" << endl; }
+	Coffee() : c(10), s(0), m(0), w(0) {}
+	Coffee(int a, int b, int c, int d) : c(a), s(b), m(c), w(d) {}
+	void show() {
+		cout << "coffee ";
+		for (int i = 0; i < c; i++)	cout << "*";
+		cout << endl;
+		cout << "sugar ";
+		for (int i = 0; i < s; i++)	cout << "*";
+		cout << endl;
+		cout << "milk ";
+		for (int i = 0; i < m; i++)	cout << "*";
+		cout << endl;
+		cout << "water ";
+		for (int i = 0; i < w; i++)	cout << "*";
+		cout << endl;
+	}
 };
-
+```
+* Coffer 클래스 선언
+* 기본 생성자 선언 및 초기화
+* 타겟 생성자 선언
+* show 선언 및 초기화(출력문)
+```
 int main() {
-	Triangle tri;
-	tri.setWidth(3);
-	tri.setHeight(5);
-	cout << "삼각형의 면적은 " << tri.getArea() << endl;
-	return 0;
+	Coffee espresso;	// 커피 10, 설탕 0, 우유 0, 물 0
+	Coffee americano(5, 0, 0, 10);	// 커피 5, 설탕 0, 우유 0, 물 10
+	Coffee cappucchino(5, 1, 5, 2);	// 커피 5, 설탕 1, 우유 5, 물 2
+	Coffee mySweet(3, 7, 5, 5);	// 커피 3, 설탕 7, 우유 5, 물 5
+
+	espresso.show();
+	cout << endl;
+	mySweet.show();
 }
 ```
+* 여러 개의 Coffee의 객체 생성
+* 특정 객체를 show에 대입 호출
+<img src="./sbj 3-5-3-2.png">
+---
 
 ## 예제 3
 ```
@@ -97,18 +130,33 @@ class Storage {
 private:
 	float sum = 0;
 	int count = 0;
+```
+* Storage 클래스의 멤버 변수 선언
+* count는 배열의 순서를 위해 사용
+```
 public:
 	double data[10] = {};
 	void put(double x) {
 		if (count < 10)
 			data[count++] = x;
 	}
+```
+* data 배열을 10칸으로 선언
+* put 함수 선언
+* put은 데이터를 넣으며 count++
+```
 	float getAvg() {
 		sum = 0;
 		for (int i = 0; i < count; i++)
 			sum += data[i];
 		return (sum / count);
 	}
+```
+* 평균 체온을 구하는 함수 선언
+* 누적 합(sum)을 0으로 초기화
+* count = i 번째 데이터를 누적 합에 ++
+* 모든 누적합(sum)을 count만큼 나누어 평균값 도출
+```
 	void dump() {
 		for (int i = 0; i < count; i++) {
 			cout << data[i];
@@ -117,7 +165,11 @@ public:
 		cout << endl;
 	}
 };
-
+```
+* data에 저장된 모든 체온 값을들 출력
+* 체온 값 출력 시, 사이에 공백을 추가
+* data에 값이 저장된 마지막 i번째 값까지 반복
+```
 int main() {
 	Storage a;
 	a.put(36.7);
@@ -127,3 +179,8 @@ int main() {
 	cout << "평균 체온은 " << a.getAvg() << "입니다." << endl;
 }
 ```
+* Storage클래스 a라는 객체 선언
+* 체온값을 데이터에 순서대로 하나씩 삽입
+* 삽입된 데이터 3개를 모두 출력
+* 산출된 평균 체온값과 문장을 출력
+<img src="./sbj 3-5-3-7.png">
