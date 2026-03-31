@@ -39,7 +39,6 @@ public:
 * 너비 구하는 함수 선언 및 초기화
 * 소멸자 선언 및 초기화
 <img src="./sbj 3-5-2.png">
----
 
 # 실습과제 3
 
@@ -79,7 +78,6 @@ int main() {
 * Picture 객체 pic 생성 (pic = 기본 생성자 호출)
 * Picture 객체 my 생성 (mt = 타겟 생성자에 변수 대입 호출)
 <img src="./sbj 3-5-3-1.png">
----
 
 ## 예제 2
 ```
@@ -124,7 +122,6 @@ int main() {
 * 여러 개의 Coffee의 객체 생성
 * 특정 객체를 show에 대입 호출
 <img src="./sbj 3-5-3-2.png">
----
 
 ## 예제 3
 ```
