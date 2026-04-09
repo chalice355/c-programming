@@ -1,0 +1,45 @@
+// **********************************************
+// Á¦  ¸ñ : 5ÁÖÂ÷ ½Ç½À°úÁ¦ 4-3-4
+// ³¯  Â¥ : 2026³â 4¿ù 9ÀÏ
+// ÀÛ¼ºÀÚ : 2001218 ÀÓ¼º¹è
+// **********************************************
+
+#include <iostream>
+using namespace std;
+
+class Triangle {
+private:
+	int width, height;
+public:
+	Triangle() : width(1), height(1) { cout << "¹Øº¯ " << width << "³ôÀÌ " << height << "ÀÎ »ï°¢Çü »ý¼º" << endl; }
+	Triangle(int a, int b) : width(a), height(b) { cout << "¹Øº¯ " << width << "³ôÀÌ " << height << "ÀÎ »ï°¢Çü »ý¼º" << endl; }
+	void setWH(int a, int b) { width = a; height = b; }
+	float getArea() { return 0.5 * width * height; }
+	~Triangle() { cout << "¹Øº¯ " << width << "³ôÀÌ " << height << "ÀÎ »ï°¢Çü ¼Ò¸ê" << endl; }
+};
+
+int main() {
+	Triangle* pArray = new Triangle[3];
+	pArray[1].setWH(2, 2);
+	pArray[2].setWH(4, 4);
+
+	Triangle* p = pArray;
+	for (int i = 0; i < 3; i++) {
+		cout << "»ï°¢ÇüÀÇ ¸éÀûÀº " << p->getArea() << endl;
+		p++;
+	}
+	delete[] pArray;
+	return 0;
+}
+
+/*
+¹Øº¯ 1³ôÀÌ 1ÀÎ »ï°¢Çü »ý¼º
+¹Øº¯ 2³ôÀÌ 2ÀÎ »ï°¢Çü »ý¼º
+¹Øº¯ 4³ôÀÌ 4ÀÎ »ï°¢Çü »ý¼º
+»ï°¢ÇüÀÇ ¸éÀûÀº 0.5
+»ï°¢ÇüÀÇ ¸éÀûÀº 2
+»ï°¢ÇüÀÇ ¸éÀûÀº 8
+¹Øº¯ 4³ôÀÌ 4ÀÎ »ï°¢Çü ¼Ò¸ê
+¹Øº¯ 2³ôÀÌ 2ÀÎ »ï°¢Çü ¼Ò¸ê
+¹Øº¯ 1³ôÀÌ 1ÀÎ »ï°¢Çü ¼Ò¸ê
+*/
