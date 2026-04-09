@@ -11,27 +11,21 @@ class Triangle {
 private:
 	int width, height;
 public:
-	Triangle();
-	Triangle(int a, int b);
-	int setWH(int a, int b) { width = a, height = b; }
-	float getArea();
-	~Triangle();
+	Triangle() : width(1), height(1) { cout << "밑변 " << width << "높이 " << height << "인 삼각형 생성" << endl; }
+	Triangle(int a, int b) : width(a), height(b) { cout << "밑변 " << width << "높이 " << height << "인 삼각형 생성" << endl; }
+	void setWH(int a, int b) { width = a; height = b; }
+	float getArea() { return 0.5 * width * height; }
+	~Triangle() { cout << "밑변 " << width << "높이 " << height << "인 삼각형 소멸" << endl; }
 };
-
-Triangle::Triangle() : Triangle(1, 1) { cout << "폭" << width << ",높이" << height << " 삼각형생성" << endl; }
-Triangle::Triangle(int a, int b) : width(a), height(b) {}
-float Triangle::getArea() { return (1.0 / 2.0) * width * height; }
-Triangle::~Triangle() { cout << "폭" << width << ",높이" << height << " 삼각형소멸" << endl; }
 
 int main() {
 	Triangle* pArray = new Triangle[3];
-	pArray[0].getArea();
+	pArray[1].setWH(2, 2);
+	pArray[2].setWH(4, 4);
 
-	for (int i = 0; i < 3; i++)
-		cout << pArray[i].getArea() << '\n';
 	Triangle* p = pArray;
 	for (int i = 0; i < 3; i++) {
-		cout << p->getArea() << '\n';
+		cout << "삼각형의 면적은 " << p->getArea() << endl;
 		p++;
 	}
 	delete[] pArray;
