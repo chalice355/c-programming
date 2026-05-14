@@ -175,13 +175,19 @@ public:
 	int getSize() { return putIndex; }
 };
 ```
-* 
+* 파이프 최대 저장 크기, 데이터 넣을/꺼낼 위치 선언
+* 데이터를 저장할 동적배열 포인터 선언
 
 ```
 MyPipe::MyPipe() : MyPipe(10) {}
 MyPipe::MyPipe(int size) : size(size), putIndex(0), getIndex(0) {
 	p = new int[size];
 }
+```
+* 기본생성자 -> 타겟생성자(10) 위임
+* 타겟생성자 초기화
+
+```
 MyPipe::MyPipe(const MyPipe& src) {
 	this->size = src.size;
 	this->putIndex = src.putIndex;
@@ -191,20 +197,44 @@ MyPipe::MyPipe(const MyPipe& src) {
 		this->p[i] = src.p[i];
 	}
 }
+```
+* 깊은 복사 생성자 정의
+* size = 원본 최대 크기 복사
+* putIndex = 원본 저장 위치 복사
+* getIndex = 원본 꺼낼 위치 복사
+* 포인터p = 원본과 독립적인 새 메모리 할당
+* 원본 배열 전체를 새 배열에 복사
+
+```
 MyPipe::~MyPipe() {
 	delete[] p;
 }
+```
+* 소멸자로 동적 할당한 배열 메모리 해제
+
+```
 bool MyPipe::put(int n) {
 	if (putIndex == size)	return false;
 	p[putIndex++] = n;
 	return true;
 }
+```
+* 파이프 뒤쪽에 데이터 넣기
+* putIndex가 size와 같으면 꽉 찬 상태 = false
+* 현재 putIndex 위치에 n 저장 후 putIndex + 1
+
+```
 bool MyPipe::get(int& n) {
 	if (getIndex == putIndex)	return false;
 	n = p[getIndex++];
 	return true;
 }
+```
+* 파이프 앞쪽에서 데이터 꺼내기
+* getIndex가 putIndex와 같으면 꺼낼 데이터 없음 = false
+* getIndex 위치의 값을 n에 저장 후 getIndex + 1
 
+```
 int main() {
 	MyPipe a(5);
 	a.put(10); a.put(20);
@@ -219,3 +249,7 @@ int main() {
 	cout << "파이프 b에서 빼온 값 " << n << endl;
 }
 ```
+* 크기 5짜리 파이프 a를 생성하고 10과 20을 파이프에 put
+* 깊은 복사생성자 호출 -> b에 a의 값들 복사
+* 파이프 b에 30 put
+* a와 b의 0번 위치값을 꺼냄
