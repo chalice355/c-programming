@@ -66,6 +66,7 @@ int main() {
 }
 ```
 * 깊은 복사를 했기 때문에 daughter 이름을 바꿔도 father는 영향을 받지 않는다.
+<img src="./sbj 5-4-2.png">
 
 # 실습과제 3
 ```
@@ -157,6 +158,7 @@ int main() {
 * 스택 b의 배열에 30 push
 * a의 top을 pop -> 20
 * b의 top을 pop -> 30
+<img src="./sbj 5-4-3.png">
 
 # 실습과제 4
 ```
@@ -253,3 +255,4 @@ int main() {
 * 깊은 복사생성자 호출 -> b에 a의 값들 복사
 * 파이프 b에 30 put
 * a와 b의 0번 위치값을 꺼냄
+<img src="./sbj 5-4-4.png">
