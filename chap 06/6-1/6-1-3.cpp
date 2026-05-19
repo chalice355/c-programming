@@ -5,9 +5,11 @@ using namespace std;
 class Rectangle {
 	int width, height;
 public:
-	Rectangle(int w = 1, int h = 1) : width(w), height(h) {}
+	Rectangle() : Rectangle(1, 1) {}
+	Rectangle(int w) : Rectangle(w, 1) {}
+	Rectangle(int w, int h) : width(w), height(h) {}
 	void show() {
-		cout << "사각형 폭은 " << width << "높이는 " << height << endl;
+		cout << "사각형 폭은 " << width << " 높이는 " << height << endl;
 	}
 };
 
