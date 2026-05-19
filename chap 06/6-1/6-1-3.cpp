@@ -1,30 +1,38 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 using namespace std;
 
-class Rectangle {
-	int width, height;
-public:
-	Rectangle() : Rectangle(1, 1) {}
-	Rectangle(int w) : Rectangle(w, 1) {}
-	Rectangle(int w, int h) : width(w), height(h) {}
-	void show() {
-		cout << "»ç°¢Çü ÆøÀº " << width << " ³ôÀÌ´Â " << height << endl;
-	}
-};
+int big(int a, int b);
+double big(double a, double b);
+string big(string a, string b);
 
 int main() {
-	Rectangle rect0;
-	rect0.show();
-	Rectangle rect1(10);
-	rect1.show();
-	Rectangle rect2(10, 20);
-	rect2.show();
-	return 0;
+    int x = big(10, 20);
+    cout << "í° ì •ìˆ˜ê°’ì€ " << x << endl;
+    double y = big(3.14, 1.05);
+    cout << "í° ì‹¤ìˆ˜ê°’ì€ " << y << endl;
+    string z = big("hello", "world");
+    cout << "ì‚¬ì „ì—ì„œ ë’¤ì— ë‚˜ì˜¤ëŠ” ë‹¨ì–´ëŠ” " << z << endl;
+    return 0;
+}
+
+int big(int a, int b) {
+    if (a > b) return a;
+    else return b;
+}
+
+double big(double a, double b) {
+    if (a > b) return a;
+    else return b;
+}
+
+string big(string a, string b) {
+    if (a > b) return a;
+    else return b;
 }
 
 /*
-»ç°¢Çü ÆøÀº 1 ³ôÀÌ´Â 1
-»ç°¢Çü ÆøÀº 10 ³ôÀÌ´Â 1
-»ç°¢Çü ÆøÀº 10 ³ôÀÌ´Â 20
+ì‚¬ê°í˜• í­ì€ 1 ë†’ì´ëŠ” 1
+ì‚¬ê°í˜• í­ì€ 10 ë†’ì´ëŠ” 1
+ì‚¬ê°í˜• í­ì€ 10 ë†’ì´ëŠ” 20
 */
