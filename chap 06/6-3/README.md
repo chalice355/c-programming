@@ -56,21 +56,22 @@ int main() {
 class Triangle {
 	static int NumOfTriangles;
 public:
-	Triangle(int n = 0);
+	Triangle() { NumOfTriangles++; }
 	~Triangle() { NumOfTriangles--; }
 	static int getNumOfTriangle() { return NumOfTriangles; }
 };
 ```
 * 삼각형의 개수를 구하는 클래스
-* 
+* 삼각형의 개수를 저장하는 정적 변수 선언
+* 생성자를 통해 개수를 증가시키고, 소멸자를 통해 개수를 감소시킨다.
+* 저장된 삼각형의 개수를 저장하는 변수를 불러오는 정적 함수를 선언 및 정의
 
 ```
-Triangle::Triangle(int n) {
-	NumOfTriangles = n;
-	NumOfTriangles++;
-}
 int Triangle::NumOfTriangles = 0;
+```
+* 삼각형의 개수를 저장하는 정적 변수 초기화
 
+```
 int main() {
 	Triangle* tri1 = new Triangle[5];
 	cout << "생성된 삼각형의 개수 :" << Triangle::getNumOfTriangle()
@@ -82,6 +83,7 @@ int main() {
 	return 0;
 }
 ```
+* 
 
 # 실습과제 4
 
