@@ -3,17 +3,12 @@ using namespace std;
 // 클래스 선언 추가
 class Triangle {
 	static int NumOfTriangles;
-	int num;
 public:
-	Triangle(int n = 0);
+	Triangle() { NumOfTriangles++; }
 	~Triangle() { NumOfTriangles--; }
 	static int getNumOfTriangle() { return NumOfTriangles; }
 };
 
-Triangle::Triangle(int n) {
-	num = n;
-	NumOfTriangles++;
-}
 int Triangle::NumOfTriangles = 0;
 
 int main() {
